@@ -1,0 +1,10 @@
+---
+title: 日本
+layout: post
+tags:
+  - japan
+---
+
+[![日本拉面](/media/files/2014/09/05/bridge-to-wonderland.jpg)](http://500px.com/photo/82158657)
+
+5月份去了日本，现在回想起来印象最深的其中一个就是拉面。大大小小的拉面馆错落在各式小巷，暧暧的色调，干净的大厨。
