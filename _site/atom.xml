@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Cook girl</title>
+ <link href="http://haolong886.github.io/atom.xml" rel="self"/>
+ <link href="http://haolong886.github.io"/>
+ <updated>2014-11-17T00:42:38+08:00</updated>
+ <id>http://haolong886.github.io</id>
+ <author>
+   <name>wayne</name>
+ </author>
+
+ 
+ <entry>
+   <title>日本印象</title>
+   <link href="http://haolong886.github.io/2014/11/16/japan.html"/>
+   <updated>2014-11-16T00:00:00+08:00</updated>
+   <id>http://haolong886.github.io/2014/11/16/japan</id>
+   <content type="html">&lt;p&gt;日本美丽的街道，在现今国内的大城市中，已经很难见到这样多的电线杆。但是在日本这个国家，老旧的电线杆与整洁的道路搭配得如此美妙。
+&lt;a href=&quot;/media/files/IMG_6806.jpg&quot;&gt;&lt;img src=&quot;/media/files/IMG_6806.jpg&quot; alt=&quot;日本拉面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;拉面是日本的大众饮食，大大小小的拉面馆错落在各式小巷，暧暧的色调，干净的大厨。
+&lt;a href=&quot;/media/files/IMG_6809.jpg&quot;&gt;&lt;img src=&quot;/media/files/IMG_6809.jpg&quot; alt=&quot;日本拉面&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>

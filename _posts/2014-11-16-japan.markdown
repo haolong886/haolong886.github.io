@@ -1,5 +1,5 @@
 ---
-title: 日本
+title: 日本印象
 layout: post
 tags:
   - japan
