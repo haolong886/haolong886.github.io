@@ -45,71 +45,46 @@
   
   <article class="content">
     <section class="title">
-      <h2><a href="/2014/11/19/markdown_study.html">markdown学习笔记</a></h2>
+      <h2><a href="/2015/01/16/shell_study.html">shell小问题</a></h2>
     </section>
     <section class="meta">
     <span class="time">
-      <time datetime="2014-11-19">2014-11-19</time>
+      <time datetime="2015-01-16">2015-01-16</time>
     </span>
     
     <span class="tags">
       
       <a href="/tags.html#work" title="work">#work</a>
       
-      <a href="/tags.html#markdown" title="markdown">#markdown</a>
+      <a href="/tags.html#shell" title="shell">#shell</a>
       
     </span>
     
     </section>
     <section class="post">
-    <p><img src="media/files/markdown.png" alt="markdown" /></p>
+    <p>在工作中遇到了两个问题，一个是关于expect，还有一个是read的问题。这两个问题都是在做一个关于密码复杂度需求过程中发现的，现在分别记下，以供日后参考。</p>
 
-<h3>> 背景</h3>
+<h3>I. expect问题</h3>
 
-<p>学习markdown完全是因为本博客，这周终于启动了github blog的计划，目前看来还真是简单又好用。这里还要先感谢github的waynezhang大神，博客的样式是从他的repo中clone的，非常不错，该有的都有了。
-言归正传，下面说说markdown这玩意儿，本博客是由jekyll+markdown+github生成的。markdown的语法可以说是极其简单，如果有哪个教程说三分钟入门markdown那绝对不是在吹牛。总结下今天学会的markdown基础标记。</p>
+<p>expect中有send命令，我们通过manual expect可以了解到，其实expect可以看作是类似shell的执行环境，里面带有自己的命令，send就是其中一个很常用的命令。需求中要求密码是支持键盘中所有字符的，并且可以以任意字符开头。密码需要用expect来验证，测试的过程中就发现一个以中杠“-”开头的密码会造成expect报错，错误如下：</p>
 
-<hr />
+<blockquote><p>expect1.1> send "-xxx"<br/>
+bad flag "-xxx": must be -i, -h, -s, -null, -0, -raw, -break, or --<br/>
+while executing<br/>
+"send "-xxx""<br/>
+expect1.2></p></blockquote>
 
-<h3>> markdown</h3>
+<p>可以看到，send把带中杠的字符串当作是传递参数，但其又无“xxx”的参数，最终报错。
+通过查看expect的手册可以看到下图所示的表述：</p>
 
-<p>记得第一次用work写论文时没有设定好文章的大纲格式，所有的标题、章节都是单独设置字体、字号等等，以至于文章无法查看大纲，更无法自动生成目录。后来又花了好大的力气把文章的格式重新设置一遍，浪费了很多时间。由此可见一篇文章的结构是多么重要，那就先从大纲类的标记说起，分为标题，序列。</p>
+<p><a href="/media/files/20150116shell/sendmanual.png"><img src="/media/files/20150116shell/sendmanual.png" alt="sendmanual" /></a></p>
 
-<h4>标题</h4>
+<p>这段话很明白的指出了send默认的行为是会把以中杠“-”开头的字符串当作flag进行处理。而同时提供了“--”参数来强制使之后的参数都作为普通字符串处理。
+由此，当我们在用expect的send密码等可能以中杠“-”开头的字符串时，最好都带上“--”参数，以避免传入带中杠的字符串而使脚本异常退出。</p>
 
-<p>标题用'#'来标记，如：</p>
+<h3>II. read问题</h3>
 
-<pre><code class="java"># 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-大标题
-＝
-小标题
--
-</code></pre>
-
-<p>得到的效果如下：</p>
-
-<blockquote><h1>一级标题</h1>
-
-<h2>二级标题</h2>
-
-<h3>三级标题</h3>
-
-<h4>四级标题</h4>
-
-<h5>五级标题</h5>
-
-<h6>六级标题</h6>
-
-<h1>大标题</h1>
-
-<h2>小标题</h2></blockquote>
-
-<h4>序列</h4>
+<p>read有个默认行为是当用户输入的字符串以“\”结尾时，会认为是用户重启一行输入而继续读入用户的输入。这带来的一个问题是当输入的密码以“\”结尾时，read会出现阻塞的现象，而实际上它在还在等待用户输入，直到遇到以换行符结尾。要关掉这种默认行为可以加“-r”参数，打开这个开关时，read会把结尾的“\”当作普通字符读入，这样就不会出现脚本卡死的现象。</p>
 
     </section>
     </article>
@@ -122,11 +97,7 @@
   
     
     
-    <li class="listing-item">
-      <time datetime="2014-11-16">2014-11-16</time>
-      <a href="/2014/11/16/japan.html" title="日本印象">日本印象</a>
-    </li>
-  
+    
     <li class="listing-seperator"><a href="/archive.html">Long long ago</a></li>
   </ul>
 </div>
@@ -136,7 +107,7 @@
         <footer>
           <div>
             
-            &copy; 2014 ~ 2014 wayne | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | fork <a href="https://github.com/waynezhang/blog" title="fork me">me</a>
+            &copy; 2014 ~ 2015 wayne | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | fork <a href="https://github.com/waynezhang/blog" title="fork me">me</a>
           </div>
         </footer>
       </div> <!-- main -->
